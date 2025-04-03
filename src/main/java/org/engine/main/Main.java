@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        window.setTitle(Config.title);
+        window.setTitle(GameConfig.title);
         window.setResizable(false);
         GamePanel gp = new GamePanel();
         window.add(gp);

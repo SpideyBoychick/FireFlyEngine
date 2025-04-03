@@ -8,11 +8,11 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
 
     public GamePanel(){
-        setPreferredSize(new Dimension(Config.windowWidth, Config.windowHeight));
-        setBackground(Config.baseWndColor);
+        setPreferredSize(new Dimension(GameConfig.windowWidth, GameConfig.windowHeight));
+        setBackground(GameConfig.baseWndColor);
         setDoubleBuffered(true);
         setFocusable(true);
-        addKeyListener(Config.keyH);
+        addKeyListener(GameConfig.keyH);
     }
 
     public void startThread(){
@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     @Override
     public void run() {
-        double drawInterval = 1_000_000_000 / Config.FPS;
+        double drawInterval = 1_000_000_000 / GameConfig.FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
             if(timer >= 1_000_000_000){
                 timer = 0;
-                Config.realFPS = repaints;
+                GameConfig.realFPS = repaints;
                 repaints = 0;
             }
         }
@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        Config.graphics = (Graphics2D)g;
-        Config.currentScene.update();
+        GameConfig.graphics = (Graphics2D)g;
+        GameConfig.currentScene.update();
     }
 }

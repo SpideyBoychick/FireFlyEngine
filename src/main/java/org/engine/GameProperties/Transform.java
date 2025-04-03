@@ -7,6 +7,7 @@ public class Transform extends Property{
 
     public double x, y;
     public double scaleX, scaleY;
+    public double theta;
 
     public Transform(GameObject gameObjectParent, double x, double y){
         super(gameObjectParent, "Transform");
@@ -22,5 +23,14 @@ public class Transform extends Property{
         this.y = y;
         this.scaleX = scaleX;
         this.scaleY = scaleY;
+    }
+
+    public Transform(GameObject gameObjectParent, double x, double y, double scaleX, double scaleY, double theta){
+        super(gameObjectParent, "Transform");
+        this.x = x;
+        this.y = y;
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.theta = theta;
     }
 }
